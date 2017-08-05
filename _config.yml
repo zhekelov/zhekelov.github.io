@@ -1,0 +1,15 @@
+title: ZHEKELOV
+description: Electronics research & development oriented company.
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

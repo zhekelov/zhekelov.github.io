@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ page.description | default: site.description }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="{{ '/assets/js/app.js' | relative_url }}" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="main-container">
+      <header id="main-header">
+        <div>
+          <button id="menu-switch" type="button">
+            Menu
+            <span class="fa fa-bars" aria-hidden="true"></span>
+            <span class="fa fa-chevron-up hidden" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <a class="logo" href="{{ 'index' }}">{{ site.title }}</a>
+
+        <nav id="menu" class="menu">
+          <ul>
+            {% for item in site.data.navigation %}
+              <li>
+                <a {% if page.url contains item.url %}class="active"{% endif %}
+                  href="{{ item.url }}">{{ item.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+
+      <section id="main-section">
+        {{ content }}
+      </section>
+
+      <footer id="main-footer">
+        © 2017 ZHEKELOV Ltd
+      </footer>
+    </div>
+
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ site.google_analytics }}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {% endif %}
+  </body>
+</html>
