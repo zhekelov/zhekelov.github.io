@@ -1,2 +1,12 @@
 - name: Home
   url: index
+- name: About Us
+  url: about-us
+- name: Drones
+  url: drones
+- name: Computers
+  url: computers
+- name: Renewables
+  url: renewables
+- name: Contacts
+  url: contacts
