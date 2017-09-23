@@ -27,7 +27,7 @@
           <ul>
             {% for item in site.data.navigation %}
               <li>
-                <a {% if page.url contains item.url %}class="active"{% endif %}
+                <a {% if page.title == item.name %}class="active"{% endif %}
                   href="{{ item.url }}">{{ item.name }}</a>
               </li>
             {% endfor %}
